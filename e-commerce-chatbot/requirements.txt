@@ -1,4 +1,8 @@
-langchain
-langchain_community
 streamlit
 chromadb
+python-dotenv
+langchain
+langchain_community
+langchain-openai
+langchain_chroma
+langsmith
