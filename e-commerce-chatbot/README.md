@@ -22,7 +22,7 @@ Step by step to run the chatbot on local
 
 ```shell
 $ git clone git@github.com:trungnguyentrong-agilityio/generative-ai-training.git
-$ cd generative-ai-training
+$ cd generative-ai-training/e-commerce-chatbot
 ```
 
 2. Create python virtual environment then activate
@@ -56,3 +56,13 @@ $ make load_document
 ```shell
 $ make run_app
 ```
+
+## Achievements
+
+1. Prompt some questions for E-commerce chatbot
+
+![sample chat](assets/chat_sample.png)
+
+2. LangSmith tracing
+
+![sample tracing](assets/langsmith_tracing_sample.png)
