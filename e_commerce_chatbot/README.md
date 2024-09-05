@@ -57,6 +57,18 @@ $ make load_document
 $ make run_app
 ```
 
+7. Run the evaluation for prompts and models
+
+```shell
+$ make evaluate
+```
+
+8. Start a browser UI for visualization of evaluation results
+
+```shell
+$ make view
+```
+
 ## Achievements
 
 1. Prompt some questions for E-commerce chatbot
@@ -67,15 +79,8 @@ $ make run_app
 
 ![sample tracing](assets/langsmith_tracing_sample.png)
 
-## Evaluation
+3. Evaluation results
 
-To get started, set your OPENAI_API_KEY environment variable, or other required keys for the providers you selected.
+![evaluate product prompt](assets/evaluate_product_prompts.png)
 
-Next, edit promptfooconfig.yaml.
-
-Then run:
-```
-promptfoo eval
-```
-
-Afterwards, you can view the results by running `promptfoo view`
+![evaluate chatbot](assets/evaluate_chatbot.png)
