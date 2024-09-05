@@ -3,9 +3,9 @@ from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_chroma import Chroma
 
 
-from components.chains.qa_chain import create_qa_chain
-from components.rag_retriever import create_rag_retriever
-from config import settings
+from e_commerce_chatbot.components.chains.qa_chain import create_qa_chain
+from e_commerce_chatbot.components.rag_retriever import create_rag_retriever
+from e_commerce_chatbot.config import settings
 
 
 def init_qa_chain():
