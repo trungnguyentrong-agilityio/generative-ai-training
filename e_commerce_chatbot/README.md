@@ -57,6 +57,18 @@ $ make load_document
 $ make run_app
 ```
 
+7. Run the evaluation for prompts and models
+
+```shell
+$ make evaluate
+```
+
+8. Start a browser UI for visualization of evaluation results
+
+```shell
+$ make view
+```
+
 ## Achievements
 
 1. Prompt some questions for E-commerce chatbot
@@ -66,3 +78,9 @@ $ make run_app
 2. LangSmith tracing
 
 ![sample tracing](assets/langsmith_tracing_sample.png)
+
+3. Evaluation results
+
+![evaluate product prompt](assets/evaluate_product_prompts.png)
+
+![evaluate chatbot](assets/evaluate_chatbot.png)

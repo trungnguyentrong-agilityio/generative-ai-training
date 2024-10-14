@@ -84,9 +84,13 @@ def create_router_chain(chat_model: BaseChatModel):
     )
 
 
-def create_product_chain(chat_model: BaseChatModel, retriever: VectorStoreRetriever):
+def create_product_chain(
+    chat_model: BaseChatModel,
+    retriever: VectorStoreRetriever,
+    system_prompt: str,
+):
     chatbot_system_prompt = SystemMessagePromptTemplate(
-        prompt=PromptTemplate(input_variables=["context"], template=system_production_prompt_template)
+        prompt=PromptTemplate(input_variables=["context"], template=system_prompt)
     )
     chatbot_human_prompt = HumanMessagePromptTemplate(
         prompt=PromptTemplate(input_variables=["input"], template=human_prompt_template)
@@ -110,12 +114,10 @@ def create_product_chain(chat_model: BaseChatModel, retriever: VectorStoreRetrie
 
 
 def create_question_answer_chain(
-    chat_model: BaseChatModel, retriever: VectorStoreRetriever
+    chat_model: BaseChatModel, retriever: VectorStoreRetriever, system_prompt: str
 ):
     chatbot_system_prompt = SystemMessagePromptTemplate(
-        prompt=PromptTemplate(
-            input_variables=["context"], template=system_qa_prompt_template
-        )
+        prompt=PromptTemplate(input_variables=["context"], template=system_prompt)
     )
     chatbot_human_prompt = HumanMessagePromptTemplate(
         prompt=PromptTemplate(input_variables=["input"], template=human_prompt_template)
@@ -142,9 +144,18 @@ def format_doc(docs: list[Document]) -> str:
     return "\n".join([doc.page_content for doc in docs])
 
 
-def create_qa_chain(chat_model: BaseChatModel, retriever: VectorStoreRetriever):
-    product_chain = create_product_chain(chat_model=chat_model, retriever=retriever)
-    qa_chain = create_question_answer_chain(chat_model=chat_model, retriever=retriever)
+def create_qa_chain(
+    chat_model: BaseChatModel,
+    retriever: VectorStoreRetriever,
+    product_system_prompt: str = system_production_prompt_template,
+    qa_system_prompt: str = system_qa_prompt_template,
+):
+    product_chain = create_product_chain(
+        chat_model=chat_model, retriever=retriever, system_prompt=product_system_prompt
+    )
+    qa_chain = create_question_answer_chain(
+        chat_model=chat_model, retriever=retriever, system_prompt=qa_system_prompt
+    )
 
     route_chain = create_router_chain(chat_model=chat_model)
 
@@ -156,4 +167,3 @@ def create_qa_chain(chat_model: BaseChatModel, retriever: VectorStoreRetriever):
     )
 
     return chain
-
