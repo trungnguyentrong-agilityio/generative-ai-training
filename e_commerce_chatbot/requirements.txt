@@ -1,0 +1,10 @@
+streamlit
+chromadb
+python-dotenv
+langchain
+langchain_community
+langchain-openai
+langchain_chroma
+langsmith
+pydantic_settings
+jq

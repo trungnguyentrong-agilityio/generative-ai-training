@@ -1,1 +1,1 @@
-# generative-ai-training
+# GENERATIVE AI TRAINING

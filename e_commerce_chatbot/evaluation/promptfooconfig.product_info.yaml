@@ -1,0 +1,21 @@
+description: "Product information queries end to end test"
+
+prompts:
+  - file://prompts/product_infor.prompts.py:prompt_1
+  - file://prompts/product_infor.prompts.py:prompt_2
+
+providers:
+  - openai:gpt-3.5-turbo
+
+tests:
+  - description: 'Test that the output is cheap and fast'
+    vars:
+      input: "Provide information about iPhone 13"
+      context: file://data/sample_products.json
+    assert:
+      - type: assert-set
+        assert:
+          - type: cost
+            threshold: 0.0002
+          - type: latency
+            threshold: 2000

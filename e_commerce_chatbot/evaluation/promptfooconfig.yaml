@@ -1,0 +1,45 @@
+description: "E-commerce ChatBot end to end test with comparison"
+
+prompts:
+  - "{{input}}"
+
+providers:
+  - python:evaluate.py
+
+tests:
+  - vars:
+      input: "What are the supported payment methods?"
+    assert:
+      - type: icontains-all
+        value:
+          - "Credit"
+          - "Debit"
+          - "Paypal"
+          - "Apple Pay"
+          - "Google Pay"
+  - vars:
+      input: "Do you offer gift wrapping services?"
+    assert:
+      - type: icontains
+        value: "yes"
+  - vars:
+      input: "What is your return policy for electronics?"
+    assert:
+      - type: icontains-all
+        value:
+          - "30 days"
+          - "unused"
+  - vars:
+      input: "Provide details about iPhone 13 Pro"
+    assert:
+      - type: icontains-all
+        value:
+          - "iPhone 13 Pro"
+          - "6.1-inch"
+          - "$999"
+  - vars:
+      input: "Provide details about iPhone 6"
+    assert: 
+      - type: llm-rubric
+        value: "Indicate that iPhone 6 is not available in the product list"
+        provider: openai:gpt-3.5-turbo
