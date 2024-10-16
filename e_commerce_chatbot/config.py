@@ -15,5 +15,7 @@ class Settings(BaseSettings):
 
     chroma_persist_directory: str = Field(default="chroma_db")
 
+    serpapi_api_key: str = Field(default=...)
+
 
 settings = Settings()
