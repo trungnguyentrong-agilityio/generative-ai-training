@@ -42,9 +42,6 @@ def load_document(path: str | Path, **loaderKargs) -> list[Document]:
 
         case ".json":
             loader_cls = JSONLoader
-            # (
-            #     file_path=path, jq_schema=".steps[], .payment_methods[]"
-            # )
 
         case _:
             raise DocumentLoaderInvalidFormat(f"{suffix} is not supported!")

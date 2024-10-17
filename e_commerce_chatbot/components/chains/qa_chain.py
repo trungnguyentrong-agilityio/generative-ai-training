@@ -6,7 +6,7 @@ from langchain.prompts import (
     HumanMessagePromptTemplate,
 )
 from langchain_core.output_parsers import StrOutputParser
-from langchain.schema.runnable import RunnablePassthrough, RunnableLambda
+from langchain.schema.runnable import RunnableLambda
 from operator import itemgetter
 from typing import Literal
 from typing_extensions import TypedDict

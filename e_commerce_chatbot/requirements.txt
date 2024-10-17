@@ -9,3 +9,5 @@ langsmith
 pydantic_settings
 jq
 google-search-results
+psycopg2
+pandas
