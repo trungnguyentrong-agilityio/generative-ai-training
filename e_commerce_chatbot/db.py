@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
 
-from config import settings
+from e_commerce_chatbot import settings
 
 def get_db_engine(read_only=False):
     """

@@ -11,3 +11,4 @@ jq
 google-search-results
 psycopg2
 pandas
+sqlalchemy
