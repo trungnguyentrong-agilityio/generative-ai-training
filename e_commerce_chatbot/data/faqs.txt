@@ -19,7 +19,6 @@ A: To return a product, go to the "Returns" section in your account, select the 
 Q: Can I cancel my order after it has been placed?
 A: You can cancel your order within 24 hours of placing it, as long as it hasn't been shipped. Go to your account, find the order, and click "Cancel."
 
-
 Q: How do I apply a discount code?
 A: You can apply a discount code at checkout. Enter the code in the "Discount Code" box, and the discount will be applied to your total.
 

@@ -8,11 +8,8 @@ from config import settings
 from components.document_loader import load_document
 from db import get_db_engine
 
-RETURN_AND_REFUND_PATH = "data/returns-and-refunds.csv"
-SHIPPING_INFO_PATH = "data/shipping-info.txt"
-ORDER_PROCESS_PATH = "data/order-process.json"
 FAQS_PATH = "data/faqs.txt"
-PRODUCT_INFORMATION_PATH = "/home/trungnguyen/workspaces/training/generative-ai-training/e_commerce_chatbot/data/products.csv"
+PRODUCT_INFORMATION_PATH = "data/products.csv"
 
 def load_products(engine):
     """
@@ -61,9 +58,9 @@ def load_faqs():
     Embedding FAQs documents and save the vector database.
     """
     faqs_documents = load_document(FAQS_PATH)
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=150)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap=0)
     splitted_docs = text_splitter.split_documents(faqs_documents)
-    embedding_func = OpenAIEmbeddings(api_key=settings.openai_api_key) # type: ignore
+    embedding_func = OpenAIEmbeddings(api_key=settings.openai_api_key, model=settings.openai_embedding_model) # type: ignore
     Chroma.from_documents(
         documents=splitted_docs,
         embedding=embedding_func,

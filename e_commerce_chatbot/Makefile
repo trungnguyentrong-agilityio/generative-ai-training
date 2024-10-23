@@ -1,7 +1,10 @@
 PARENT_DIR = $(shell dirname $(shell pwd))
 
-load_document:
-	python load_knowledge_base.py
+up_db:
+	docker compose up -d
+
+run_ingestion:
+	python ingestion.py
 
 run_app:
 	PYTHONPATH=${PARENT_DIR} streamlit run app.py
