@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Sequence
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_react_agent, AgentExecutor
 from langchain.tools import Tool
@@ -9,6 +9,7 @@ from langchain_core.memory import BaseMemory
 from e_commerce_chatbot.components.prompts import E_COMMERCE_PROMPT
 from e_commerce_chatbot.components.tools import create_google_shopping_tool, create_sql_tool, create_faqs_tool
 from e_commerce_chatbot.config import settings
+from langchain_core.tools import BaseTool
 from e_commerce_chatbot.db import get_db_engine
 
 def create_e_commerce_agent(memory: Optional[BaseMemory] = None):
@@ -17,7 +18,7 @@ def create_e_commerce_agent(memory: Optional[BaseMemory] = None):
     read_only_engine = get_db_engine(read_only=True)
 
 
-    tools: list[Tool] = [
+    tools: Sequence[BaseTool] = [
         create_sql_tool(db_engine=read_only_engine),
         create_google_shopping_tool(),
         create_faqs_tool()
