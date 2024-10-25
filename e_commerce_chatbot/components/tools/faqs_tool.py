@@ -6,6 +6,9 @@ from langchain.tools.retriever import create_retriever_tool
 from e_commerce_chatbot.config import settings
 
 def create_faqs_tool() -> Tool:
+    """
+    Create a FAQs retrieval tool for the E-commerce platform.
+    """
     embedding_func = OpenAIEmbeddings(api_key=settings.openai_api_key, model=settings.openai_embedding_model)
     vector_db = Chroma(
         persist_directory=settings.chroma_persist_directory,

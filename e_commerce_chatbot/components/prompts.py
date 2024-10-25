@@ -18,6 +18,7 @@ Follow these steps for each user query:
             3. If not found, try to search it on the internet using the `google_shopping_tool` tool.
             4. If available online, provide the product information to the user.
             5. If not available online, inform the user that the product is not found.
+            6. If product information include thumbnail, don't forget to include it in the response.
         - Order processing, payment methods, returns and refunds policies or shipping information:
             1. Try to use `sql_tool` tool to get the answer.
             2. If found, provide the answer to the user.
@@ -55,6 +56,9 @@ Final Answer: the final answer to the original input question
 ```
 Final Answer: [answer or notify the query is out of the scope of the E-commerce platform]
 ```
+
+Chat history: 
+{chat_history}
 
 Begin!
 

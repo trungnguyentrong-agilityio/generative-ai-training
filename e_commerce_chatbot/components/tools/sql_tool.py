@@ -42,3 +42,8 @@ def create_sql_tool(db_engine: Engine, llm: Optional[BaseChatModel] = None) -> T
         This tool should be called as default when the user ask about the product information.
         """
     )
+
+if __name__ == "__main__":
+    from e_commerce_chatbot.db import get_db_engine
+    tool = create_sql_tool(db_engine=get_db_engine(read_only=True))
+    print(tool.invoke({"input": "What is price of iPhone 13?"}))
